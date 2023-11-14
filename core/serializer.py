@@ -1,7 +1,7 @@
 from rest_framework import serializers
 from . models import *
 
-class ReactSerializer(serializers.HyperlinkedModelSerializer):
+class TutorialSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
-        model = React
+        model = Tutorial
         fields = ['name', 'detail']

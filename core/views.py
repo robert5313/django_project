@@ -5,9 +5,9 @@ from rest_framework.response import Response
 from . serializer import *
 
 # Create your views here.
-class ReactView(APIView):
+class TutorialView(APIView):
 
-    serializers_class = ReactSerializer
+    serializers_class = TutorialSerializer
 
     def get(self, request):
         """
@@ -22,12 +22,12 @@ class ReactView(APIView):
         """
         details = [
             {"name": detail.name, "detail": detail.detail}
-            for detail in React.objects.all()
+            for detail in Tutorial.objects.all()
         ]
         return Response["detail"]
     
     def post(self, request):
-        serializer = ReactSerializer(data=request.data)
+        serializer = TutorialSerializer(data=request.data)
         if serializer.is_valid(raise_exception=True):
             serializer.save()
             return Response(serializer.data)
